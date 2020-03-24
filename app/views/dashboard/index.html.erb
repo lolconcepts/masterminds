@@ -8,7 +8,7 @@
 			<div class="card" style="width:400px">
         <%=image_tag "do.jpg",class: "card-img-top",height: "270" %>
   					<div class="card-body">
-              <h2>25.5</h2>
+              <h2><%= current_user.hours %></h2>
     					<h4 class="card-title">HOURS</h4>
               <span class="badge badge-secondary badge-pill">GOAL 50.0</span>
     					<p class="card-text">These are the hours that you have earned</p>
@@ -22,14 +22,13 @@
   					<div class="card-body">
     					<h4 class="card-title">Your Progress</h4>
               <div class="progress">
-              <div class="progress-bar bg-success" role="progressbar" style="width: 50%"aria-valuenow="25" aria-valuemin="0" aria-valuemax="50"></div>
+              <div class="progress-bar bg-success" role="progressbar" style="width: <%=current_user.hours %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax="50"></div>
               </div>
     					<p class="card-text">Things you can do</p>
     					<a href="/entries/new" class="btn btn-primary"><span class="glyphicon glyphicon-upload">Record New Practice</span></a>
   					</div>
 			</div>
 		</div><!--COL -->
-
 		<div class="lg-col-4 sm-col-12 mx-4 shadow-lg">
 			<div class="card" style="width:400px">
   				<%=image_tag "help.jpg",class: "card-img-top" %>

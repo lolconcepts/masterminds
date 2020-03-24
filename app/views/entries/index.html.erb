@@ -20,7 +20,7 @@
         <td><%= entry.user_id %></td>
         <td><%= entry.reason_id %></td>
         <td><%= entry.timespent %></td>
-        <td><%= entry.recording %></td>
+        <td><%= link_to 'Attachment',url_for(entry.evidence) %></td>
         <td><%= entry.notes %></td>
         <td><%= link_to 'Show', entry %></td>
         <td><%= link_to 'Edit', edit_entry_path(entry) %></td>

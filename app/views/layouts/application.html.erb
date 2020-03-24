@@ -27,7 +27,7 @@
     </ul>
     <span class="navbar-text">
       <% if current_user %>
-        Logged in as <%=current_user.email %>
+        Logged in as <%= link_to current_user.email, destroy_user_session_path, method: :delete %>
       <% else %>
         Connecting You To A Higher Vibration
       <% end %>
@@ -37,5 +37,10 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+     <footer class="footer">
+      <div class="container">
+        <span class="text-muted">&copy;2020 LOLCONCEPTS</span>
+      </div>
+    </footer>
   </body>
 </html>

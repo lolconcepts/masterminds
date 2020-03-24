@@ -19,3 +19,6 @@ require("channels")
 //= require popper
 //= require bootstrap-sprockets
 //= require activestorage
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})

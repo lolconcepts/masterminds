@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @entries = Entry.all.with_attached_evidence
   end
 
   # GET /entries/1
@@ -16,6 +16,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
+    @entries = Entry.all.where(:user_id => current_user.id)
   end
 
   # GET /entries/1/edit
