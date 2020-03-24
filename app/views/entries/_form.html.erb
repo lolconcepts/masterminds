@@ -1,0 +1,36 @@
+<%= form_with(model: entry, local: true) do |form| %>
+  <% if entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+        <% entry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+ 
+  
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+  
+
+  <div class="field">
+    <%= form.label :reason_id %>
+    <%= form.collection_select :reason_id, Reason.all, :id, :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :timespent %>
+    <%= form.text_field :timespent, placeholder: "1.50" %>
+  </div>
+  <div class="field">
+    <%= form.file_field :evidence, direct_upload: true %>
+  </div>
+ 
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

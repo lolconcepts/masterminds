@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @entry.user_id %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @entry.reason_id %>
+</p>
+
+<p>
+  <strong>Timespent:</strong>
+  <%= @entry.timespent %>
+</p>
+
+<p>
+  <strong>Recording:</strong>
+  <%= @entry.recording %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @entry.notes %>
+</p>
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>
