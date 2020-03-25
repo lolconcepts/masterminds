@@ -23,6 +23,7 @@ class UserDashboard < Administrate::BaseDashboard
       searchable: true,
       searchable_field: 'name',
       order: "id",),
+    goal:Field::String,
     smsok:Field::Boolean,
     admin:Field::Boolean,
     hours: Field::String.with_options(searchable: false),
@@ -37,6 +38,7 @@ class UserDashboard < Administrate::BaseDashboard
   id
   email
   admin
+  goal
   hours
   smsok
   mobile
@@ -55,6 +57,7 @@ class UserDashboard < Administrate::BaseDashboard
   updated_at
   first_name
   last_name
+  goal
   hours
   carrier
   smsok
@@ -69,6 +72,7 @@ class UserDashboard < Administrate::BaseDashboard
   admin
   first_name
   last_name
+  goal
   hours
   mobile
   carrier
