@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
    
   has_many :notes
+  belongs_to :carrier
   def fullname
    	if self.first_name && self.last_name
    		return self.first_name + " " + self.last_name

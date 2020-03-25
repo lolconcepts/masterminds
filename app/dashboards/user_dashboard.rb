@@ -19,7 +19,10 @@ class UserDashboard < Administrate::BaseDashboard
     first_name: Field::String,
     last_name: Field::String,
     mobile: Field::String,
-    carrier_id: Field::String,
+    carrier: Field::BelongsTo.with_options(
+      searchable: true,
+      searchable_field: 'name',
+      order: "id",),
     smsok:Field::Boolean,
     admin:Field::Boolean,
     hours: Field::String.with_options(searchable: false),
@@ -37,7 +40,7 @@ class UserDashboard < Administrate::BaseDashboard
   hours
   smsok
   mobile
-  carrier_id
+  carrier
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -53,7 +56,7 @@ class UserDashboard < Administrate::BaseDashboard
   first_name
   last_name
   hours
-  carrier_id
+  carrier
   smsok
   mobile
   ].freeze
@@ -68,7 +71,7 @@ class UserDashboard < Administrate::BaseDashboard
   last_name
   hours
   mobile
-  carrier_id
+  carrier
   smsok
   ].freeze
 

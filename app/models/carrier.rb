@@ -1,2 +1,3 @@
 class Carrier < ApplicationRecord
+	
 end

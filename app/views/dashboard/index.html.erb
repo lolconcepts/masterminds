@@ -10,7 +10,7 @@
   					<div class="card-body">
               <h2><%= current_user.hours %></h2>
     					<h4 class="card-title">HOURS</h4>
-              <span class="badge badge-secondary badge-pill">GOAL 50.0</span>
+              <span class="badge badge-secondary badge-pill">Goal: <%= current_user.goal %></span>
     					<p class="card-text">These are the hours that you have earned</p>
     					<%=link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
   					</div>

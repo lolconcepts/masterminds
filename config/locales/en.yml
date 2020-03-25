@@ -28,6 +28,13 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
+en:
+  helpers:
+    label:
+      user:
+        smsok: "SMS Messages Ok?"
+
+
 
 en:
   hello: "Hello world"

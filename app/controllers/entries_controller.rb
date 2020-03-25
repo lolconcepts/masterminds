@@ -42,8 +42,12 @@ class EntriesController < ApplicationController
   # PATCH/PUT /entries/1
   # PATCH/PUT /entries/1.json
   def update
+    @user = @entry.user
     respond_to do |format|
       if @entry.update(entry_params)
+        if @entry.accepted
+          @user.hours += @entry.timespent
+        end
         format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @entry }
       else
