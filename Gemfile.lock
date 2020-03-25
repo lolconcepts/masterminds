@@ -153,6 +153,8 @@ GEM
     nokogiri (1.10.9-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
     popper_js (1.16.0)
     public_suffix (4.0.3)
     puma (4.3.3)
@@ -263,6 +265,7 @@ DEPENDENCIES
   devise (~> 4.7, >= 4.7.1)
   jbuilder (~> 2.7)
   jquery-rails
+  pg
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   sass-rails (>= 6)
