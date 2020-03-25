@@ -18,6 +18,7 @@ class EntryDashboard < Administrate::BaseDashboard
     accepted: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    session_date: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -30,6 +31,7 @@ class EntryDashboard < Administrate::BaseDashboard
   reason
   id
   timespent
+  session_date
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,6 +40,7 @@ class EntryDashboard < Administrate::BaseDashboard
   user
   reason
   id
+  session_date
   timespent
   notes
   reviewed
@@ -52,6 +55,7 @@ class EntryDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
   user
   reason
+  session_date
   timespent
   notes
   reviewed

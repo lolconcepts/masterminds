@@ -22,6 +22,11 @@
     <%= form.collection_select :reason_id, Reason.all, :id, :description %>
   </div>
 
+   <div class="field">
+    <%= form.label :session_date %>
+    <%= form.date_field :session_date %>
+  </div>
+
   <div class="field">
     <%= form.label :timespent %>
     <%= form.text_field :timespent, placeholder: "1.50" %>
