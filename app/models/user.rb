@@ -3,11 +3,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-   def fullname
+   
+  has_many :notes
+  def fullname
    	if self.first_name && self.last_name
    		return self.first_name + " " + self.last_name
    	else
    		return "Names Not Set"
    	end
-   end
+  end
+
+  def adminify
+    self.admin = true
+    self.save
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_142602) do
+ActiveRecord::Schema.define(version: 2020_03_25_132617) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 2020_03_24_142602) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "carriers", force: :cascade do |t|
+    t.string "name"
+    t.string "suffix"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "entries", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "reason_id", null: false
@@ -45,6 +52,14 @@ ActiveRecord::Schema.define(version: 2020_03_24_142602) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["reason_id"], name: "index_entries_on_reason_id"
     t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.integer "user_id", default: 1, null: false
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "reasons", force: :cascade do |t|
@@ -64,6 +79,11 @@ ActiveRecord::Schema.define(version: 2020_03_24_142602) do
     t.string "first_name"
     t.string "last_name"
     t.decimal "hours", precision: 5, scale: 2
+    t.integer "carrier_id", default: 1, null: false
+    t.boolean "smsok", default: false
+    t.string "mobile"
+    t.boolean "admin", default: false
+    t.index ["carrier_id"], name: "index_users_on_carrier_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -71,4 +91,6 @@ ActiveRecord::Schema.define(version: 2020_03_24_142602) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "entries", "reasons"
   add_foreign_key "entries", "users"
+  add_foreign_key "notes", "users"
+  add_foreign_key "users", "carriers"
 end

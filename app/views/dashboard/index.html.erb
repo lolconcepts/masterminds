@@ -1,10 +1,10 @@
 <div class="container-fluid">
-<div class="display-1 text-center">MasterMind Dashboard</div>
+<div class="display-4 text-center">MasterMind Dashboard</div>
 <p class="text-center text-uppercase text-secondary">Connecting you to a higher vibration</p>
 </div>
 <div class="container-fluid text-center mx-auto">
 	<div class="row justify-content-md-center">
-		<div class="lg-col-4 sm-col-12 my-8 mx-4  shadow-lg">
+		<div class="lg-col-4 sm-col-12 my-8 mx-4 shadow-lg">
 			<div class="card" style="width:400px">
         <%=image_tag "do.jpg",class: "card-img-top",height: "270" %>
   					<div class="card-body">
@@ -12,7 +12,7 @@
     					<h4 class="card-title">HOURS</h4>
               <span class="badge badge-secondary badge-pill">GOAL 50.0</span>
     					<p class="card-text">These are the hours that you have earned</p>
-    					<a href="#" class="btn btn-primary">See Profile</a>
+    					<%=link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
   					</div>
 			</div>
 		</div><!--COL -->
@@ -25,7 +25,7 @@
               <div class="progress-bar bg-success" role="progressbar" style="width: <%=current_user.hours %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax="50"></div>
               </div>
     					<p class="card-text">Things you can do</p>
-    					<a href="/entries/new" class="btn btn-primary"><span class="glyphicon glyphicon-upload">Record New Practice</span></a>
+    					<a href="/entries/new" class="btn btn-primary"><span class="glyphicon glyphicon-upload"><i class="fas fa-cloud-upload-alt"></i>Record New Practice</span></a>
   					</div>
 			</div>
 		</div><!--COL -->
@@ -35,8 +35,14 @@
   					<div class="card-body">
     					<h4 class="card-title">Your Teacher</h4>
     					<p class="card-text">Jennifer</p>
-              <p class="lead">You are doing great! Practice more feeling from your chi center.</p>
-    					<a href="#" class="btn btn-primary">See Profile</a>
+              <p class="lead">
+                <% if current_user.notes.count > 0 %>
+                  <%=current_user.notes.last.body %>
+                <% else %>
+                  No Feedback yet.
+                <% end %>
+              </p>
+    					
   					</div>
 			</div>
 		</div><!--COL -->

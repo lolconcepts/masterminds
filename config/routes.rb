@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  resources :notes
+  resources :carriers
   namespace :admin do
       resources :users
       resources :entries
       resources :reasons
+      resources :notes
+      resources :carriers
 
       root to: "users#index"
     end

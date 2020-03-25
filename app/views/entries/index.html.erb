@@ -1,8 +1,9 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Entries</h1>
+<h1>Session Entries</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -10,26 +11,23 @@
       <th>Timespent</th>
       <th>Recording</th>
       <th>Notes</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
-        <td><%= entry.user_id %></td>
-        <td><%= entry.reason_id %></td>
+        <td><%= entry.user.fullname %></td>
+        <td><%= entry.reason.description %></td>
         <td><%= entry.timespent %></td>
         <td><%= link_to 'Attachment',url_for(entry.evidence) %></td>
         <td><%= entry.notes %></td>
-        <td><%= link_to 'Show', entry %></td>
-        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
+</div>
 
 <br>
 
 <%= link_to 'New Entry', new_entry_path %>
+</table>
