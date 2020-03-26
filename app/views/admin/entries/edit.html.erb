@@ -35,5 +35,6 @@ It displays a header, and renders the `_form` partial to do the heavy lifting.
   <%= render "form", page: page %>
   <% if page.resource.evidence.attached? %>
     <%= link_to 'Download Attachment',url_for(page.resource.evidence) %>
+    <%= video_tag(url_for(page.resource.evidence), style: "width:100%;height:auto", :controls => true) if page.resource.evidence.attached? %>
   <% end %>
 </section>
