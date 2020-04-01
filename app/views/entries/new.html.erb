@@ -10,7 +10,7 @@
 <% @entries.each do |e| %>
 	<ul>
 		<li>
-			<%=e.created_at.strftime("%m/%d/%Y") %> |<%= e.reason.description %> | Reviewed: <%=e.reviewed ? 'Yes' : 'No' %>
+			<%=e.session_date.strftime("%m/%d/%Y") %> |<%= e.reason.description %> (<%= e.notes %>) | Reviewed: <%=e.reviewed ? 'Yes' : 'No' %>
 		</li>
 	</ul>
 	<% end %>

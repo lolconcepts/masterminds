@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_03_25_185538) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.decimal "hours", precision: 5, scale: 2
+    t.decimal "hours", precision: 5, scale: 2, default: "0.0"
     t.integer "carrier_id", default: 1, null: false
     t.boolean "smsok", default: false
     t.string "mobile"

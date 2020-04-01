@@ -22,6 +22,11 @@
     <%= form.collection_select :reason_id, Reason.all, :id, :description %>
   </div>
 
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_field :notes %>
+  </div>
+
    <div class="field">
     <%= form.label :session_date %>
     <%= form.date_field :session_date %>
