@@ -30,7 +30,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        UserMailer.notify.deliver #deliver message
+        UserMailer.notify(@entry.user.fullname).deliver #deliver message
         format.html { redirect_to root_url, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else

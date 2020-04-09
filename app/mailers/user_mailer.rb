@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   default from: "notify@lolconcepts.com"
   
-  def notify
+  def notify(user)
     @users = User.all.where(:smsok => true).where.not(mobile: [nil,""],carrier_id: [nil]).where(:admin => true)
     @email_list = []
     @users.each do |s|
@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
     end
     @email_list = @email_list.uniq
     @subj = "Masterminds"
-    mail(:bcc => @email_list, :subject => @subj, :body => "New Entry Uploaded!")
+    mail(:bcc => @email_list, :subject => @subj, :body => "New Entry Uploaded by #{user}!")
   end
 
   # Send out a note to ALL students. Template:=> /views/user_mailer/email_blast.text.erb
