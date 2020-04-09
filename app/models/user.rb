@@ -18,4 +18,13 @@ class User < ApplicationRecord
     self.admin = true
     self.save
   end
+
+  def smsAddress
+    if self.carrier_id && self.mobile
+      @sms = "#{self.mobile.tr('-','')}#{Carrier.find(self.carrier_id).suffix}"
+    else
+      @sms = ""
+    end
+    return @sms
+  end
 end
