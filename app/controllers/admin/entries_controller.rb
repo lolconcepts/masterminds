@@ -53,7 +53,7 @@ module Admin
          transform_values { |value| value == "" ? nil : value }
      end
      def entry_params
-      params.require(:entry).permit(:user_id, :reason_id, :timespent, :recording, :notes, :evidence)
+      params.require(:entry).permit(:user_id, :reason_id, :timespent, :recording, :notes, :evidence, :session_date, :reviewed, :accepted)
     end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions

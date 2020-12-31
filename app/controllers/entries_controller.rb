@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
+
   # GET /entries
   # GET /entries.json
   def index
@@ -76,6 +77,6 @@ class EntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entry_params
-      params.require(:entry).permit(:user_id, :reason_id, :timespent, :recording, :notes, :evidence, :session_date,:reviewed,:accepted)
+      params.require(:entry).permit! #(:user_id, :reason_id, :timespent, :recording, :notes, :evidence, :session_date, :reviewed, :accepted)
     end
 end
