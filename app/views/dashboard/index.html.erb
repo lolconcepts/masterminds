@@ -6,7 +6,7 @@
  
 </style>
 <div class="container-fluid">
-<div class="display-4 text-center">MasterMind Dashboard</div>
+<div class="display-4 text-center">Mentorship Dashboard</div>
 <p class="text-center text-uppercase text-secondary">Connecting you to a higher vibration</p>
 </div>
 <div class="container-fluid text-center mx-auto">
@@ -41,7 +41,7 @@
   				<%=image_tag "help.jpg",class: "card-img-top" %>
   					<div class="card-body">
     					<h4 class="card-title">Your Teacher</h4>
-    					<p class="card-text">Jennifer</p>
+    					<p class="card-text"><%= @teacher %></p>
               <p class="lead">
                 <% if current_user.notes.count > 0 %>
                   <%=current_user.notes.last.body %>
