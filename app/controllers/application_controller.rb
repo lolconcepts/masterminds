@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
-	@title = ENV["APPNAME"] || "Mentorship"
+	@title = ENV['APPNAME']
     protected
 	def configure_permitted_parameters
  	  attributes = [:first_name, :last_name,:carrier_id,:mobile,:smsok,:session_date,:reviewed,:accepted]
