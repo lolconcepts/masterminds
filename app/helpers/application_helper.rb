@@ -1,3 +1,3 @@
 module ApplicationHelper
-	@title = ENV["APPNAME"] || "Mentorship"
+	@title = ENV["APPNAME"]
 end
