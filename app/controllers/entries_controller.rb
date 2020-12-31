@@ -76,6 +76,6 @@ class EntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entry_params
-      params.require(:entry).permit(:user_id, :reason_id, :timespent, :recording, :notes, :evidence, :session_date)
+      params.require(:entry).permit(:user_id, :reason_id, :timespent, :recording, :notes, :evidence, :session_date,:reviewed,:accepted)
     end
 end
