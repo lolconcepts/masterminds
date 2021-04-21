@@ -6,7 +6,10 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all.with_attached_evidence
+    if current_user && current_user.admin
+      @entries = Entry.all.with_attached_evidence
+    else
+      @entried = Entry.all.with_attached_evidence.where(user_id: current_user.id)
   end
 
   # GET /entries/1
