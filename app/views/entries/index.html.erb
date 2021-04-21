@@ -2,6 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Session Entries</h1>
+<div class="text-blue-700">Progress takes risk. Perfection takes confidence.</div>
 
 <table class="table">
   <thead>
@@ -9,8 +10,9 @@
       <th>User</th>
       <th>Reason</th>
       <th>Timespent</th>
-      <th>Recording</th>
+      <th>Status</th>
       <th>Notes</th>
+      <th>Recording</th>
     </tr>
   </thead>
 
@@ -22,12 +24,15 @@
         <% if entry.timespent %>
           <td><%= entry.timespent %></td>
         <% end %>
-        <% if entry.evidence %>
-         
-          <% else %>
-          No Attachment
-          <% end %>
+        <td><%= entry.status %></td>
         <td><%= entry.notes %></td>
+        <td>
+        <% if entry.evidence.attached? %>
+          <%= link_to 'Download', url_for(entry.evidence) %>
+        <% else %>
+          No Attachment
+        <% end %>
+      </td>
       </tr>
     <% end %>
   </tbody>

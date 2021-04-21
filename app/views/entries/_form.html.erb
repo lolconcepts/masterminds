@@ -34,7 +34,7 @@
 
   <div class="field">
     <%= form.label :timespent %>
-    <%= form.text_field :timespent, placeholder: "1.50" %>
+    <%= form.text_field :timespent, placeholder: "1.50" %><span class="text-gray-500"> example: [0.25 = 15 mins, 0.5 = 30 mins]</span>
   </div>
   
     <%= form.file_field :evidence, direct_upload: true, class: "form-control file-field" %>
