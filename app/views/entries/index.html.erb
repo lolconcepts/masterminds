@@ -19,9 +19,11 @@
       <tr>
         <td><%= entry.user.fullname %></td>
         <td><%= entry.reason.description %></td>
-        <td><%= entry.timespent %></td>
+        <% if entry.timespent %>
+          <td><%= entry.timespent %></td>
+        <% end %>
         <% if entry.evidence %>
-          <td><%= link_to 'Attachment',url_for(entry.evidence) %></td>
+          <!--<td><%= link_to 'Attachment',url_for(entry.evidence) %></td> -->
           <% else %>
           No Attachment
           <% end %>
