@@ -9,7 +9,8 @@ class EntriesController < ApplicationController
     if current_user && current_user.admin
       @entries = Entry.all.with_attached_evidence
     else
-      @entried = Entry.all.with_attached_evidence.where(user_id: current_user.id)
+      @entries = Entry.all.with_attached_evidence.where(user_id: current_user.id)
+    end
   end
 
   # GET /entries/1
