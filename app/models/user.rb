@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  before_create :set_current_hours
+
+   
    
   has_many :notes
   belongs_to :carrier
@@ -12,6 +15,10 @@ class User < ApplicationRecord
    	else
    		return "Names Not Set"
    	end
+  end
+
+  def set_current_hours 
+      self.hours = 0.0
   end
 
   def adminify
