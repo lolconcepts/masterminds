@@ -8,6 +8,10 @@
 <div class="container-fluid">
 <div class="display-4 text-center">Mentorship Dashboard</div>
 <p class="text-center text-uppercase text-secondary">Connecting you to a higher vibration</p>
+<% if !current_user.first_name %>
+  <p class="text-center text-danger h1">Please complete your <%= link_to 'profile', edit_user_registration_path %>.</p>
+<% end %>
+
 </div>
 <div class="container-fluid text-center mx-auto">
 	<div class="row justify-content-md-center">
@@ -29,7 +33,7 @@
   					<div class="card-body">
     					<h4 class="card-title">Your Progress</h4>
               <div class="progress">
-              <div class="progress-bar bg-success" role="progressbar" style="width: <%=current_user.hours %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax="50"></div>
+              <div class="progress-bar bg-success" role="progressbar" style="width: <%= statusbar(current_user.hours,current_user.goal) %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax=<%=current_user.goal %>></div>
               </div>
     					<p class="card-text">Things you can do</p>
     					<a href="/entries/new" class="btn btn-primary"><span class="glyphicon glyphicon-upload"><i class="fas fa-cloud-upload-alt"></i> Record New Practice</span></a>

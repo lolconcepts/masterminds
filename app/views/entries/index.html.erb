@@ -5,15 +5,15 @@
 <div class="text-blue-700">Progress takes risk. Perfection takes confidence.</div>
  <div class="progress">
               <% if current_user.hours > 0 && current_user.hours < 10 %>
-              <div class="progress-bar bg-danger" role="progressbar" style="width: <%=current_user.hours %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax="50"></div>
+              <div class="progress-bar bg-danger" role="progressbar" style="width: <%= statusbar(current_user.hours,current_user.goal) %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax=<%= current_user.goal %>></div>
               </div>
               <% end %>
               <% if current_user.hours > 10 && current_user.hours < 30 %>
-              <div class="progress-bar bg-warning" role="progressbar" style="width: <%=current_user.hours %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax="50"></div>
+              <div class="progress-bar bg-warning" role="progressbar" style="width: <%= statusbar(current_user.hours,current_user.goal) %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax=<%= current_user.goal %>></div>
               </div>
               <% end %>
               <% if current_user.hours > 30 %>
-              <div class="progress-bar bg-success" role="progressbar" style="width: <%=current_user.hours %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax="50"></div>
+              <div class="progress-bar bg-success" role="progressbar" style="width: <%= statusbar(current_user.hours,current_user.goal) %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax=<%= current_user.goal %>></div>
               </div>
               <% end %>
 
@@ -36,9 +36,23 @@
         <td><%= entry.reason.description %></td>
         <% if entry.timespent %>
           <td><%= entry.timespent %></td>
+          <% else %>
+          <td>unknown</td>
         <% end %>
-        <td><%= entry.status %></td>
-        <td><%= entry.notes %></td>
+        
+        <td><% if entry.accepted %>
+        <span><i class="fas fa-check-square"></i> Accepted</span>
+        <% else %>
+        <span><i class="fas fa-hourglass-half"></i> Pending Review</span>
+        <% end %></td>
+        <td>
+          <% if entry.notes %>
+            <%= entry.notes %>
+          <% else %>
+            No notes.
+          <% end %>
+            
+        </td>
         <td>
         <% if entry.evidence.attached? %>
           <%= link_to 'Download', url_for(entry.evidence) %>
