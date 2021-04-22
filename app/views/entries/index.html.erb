@@ -1,8 +1,9 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Session Entries</h1>
-<div class="text-blue-700">Progress takes risk. Perfection takes confidence.</div>
+<h1 class="text-uppercase">Session Entries</h1>
+<div class="h4"><span class="text-primary">Progress</span> takes risk. <span class="text-primary">Perfection</span> takes confidence.</div>
+<div class="text-secondary">You have completed <%=sessioncount%> sessions.</div>
  <div class="progress">
               <% if current_user.hours > 0 && current_user.hours < 10 %>
               <div class="progress-bar bg-danger" role="progressbar" style="width: <%= statusbar(current_user.hours,current_user.goal) %>%" aria-valuenow=<%=current_user.hours%> aria-valuemin="0" aria-valuemax=<%= current_user.goal %>></div>
